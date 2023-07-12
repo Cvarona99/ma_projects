@@ -112,5 +112,5 @@ To complete this step, you must:
 ## Tips and tricks
 
 - There are less explicit details for this exercise, but you have everything you need to complete it. Do your best, and let the unit tests guide your work.
-- If a class can't be directly instantiated, that means that it's an abstract class.
+- Abstract classes can't be directly instantiated.
 - If a method must be explicitly implemented by a non-abstract class, that means that the method must be abstract.

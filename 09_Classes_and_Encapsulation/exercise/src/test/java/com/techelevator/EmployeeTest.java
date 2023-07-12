@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -68,6 +69,8 @@ public class EmployeeTest {
         method = SafeReflection.getMethod(klass, "raiseSalary", Double.TYPE);
         assertTrue("Employee class needs the raiseSalary(double) method.", method != null);
         assertTrue("raiseSalary(double) method needs to return type: void", method.getReturnType() == void.class);
+
+        assertFalse("Employee class must not be abstract. Remove the 'abstract' modifier on Employee.", Modifier.isAbstract(klass.getModifiers()));
     }
 
     @Test

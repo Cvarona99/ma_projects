@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 
 public class HomeworkAssignmentTest {
 
@@ -41,6 +42,8 @@ public class HomeworkAssignmentTest {
 		method = SafeReflection.getMethod(klass, "getLetterGrade");
 		assertTrue("HomeworkAssignment class needs the getLetterGrade() method.", method != null);
 		assertTrue("getLetterGrade() method needs to return type: String", method.getReturnType() == String.class);
+
+		assertFalse("HomeworkAssignment class must not be abstract. Remove the 'abstract' modifier on HomeworkAssignment.", Modifier.isAbstract(klass.getModifiers()));
 	}
 
 	@Test

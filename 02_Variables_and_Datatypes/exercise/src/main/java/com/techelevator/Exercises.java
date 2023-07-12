@@ -98,7 +98,7 @@ public class Exercises {
 
 
         /* Exercise 15
-        15. Mrs. Hilt has $10. She spends $3 on a toy truck and $2 on a pencil
+        15. Mrs. Hilt has $10. She spends $3 on a toy truck and $2.50 on a pencil
         case. How much money does she have left?
         */
 

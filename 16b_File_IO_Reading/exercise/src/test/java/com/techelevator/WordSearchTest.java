@@ -32,7 +32,7 @@ public class WordSearchTest {
 
     @Test
     public void caseInsensitiveSearch_LineNumbers() throws IOException {
-        String searchTerm = "nearly";
+        String searchTerm = "neaRly";
         // we don't ask for this in the first part of this exercise but we still need to capture this
         String caseSensitive = "N";
         String userInput = concatWithNewLineFeed(TEST_TEXT_FILE,searchTerm,caseSensitive);
@@ -65,7 +65,7 @@ public class WordSearchTest {
 
     @Test
     public void caseInsensitiveSearch_LineText() throws IOException {
-        String searchTerm = "nearly";
+        String searchTerm = "neaRly";
         String caseSensitive = "N";
         String userInput = concatWithNewLineFeed(TEST_TEXT_FILE,searchTerm,caseSensitive);
         System.setIn(new ByteArrayInputStream(userInput.getBytes()));
@@ -141,9 +141,6 @@ public class WordSearchTest {
         Integer[] actualArray = actual.toArray(new Integer[0]);
 
         assertArrayEquals(expectedArray, actualArray);
-
-//        assertArrayEquals(expected.toArray(),actual.toArray());
-        System.out.println("ok");
     }
 
     @Test

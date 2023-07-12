@@ -71,6 +71,8 @@ public class Exercises {
 	 *
 	 * robPeterToPayPaul({"Peter": 2000, "Paul": 99}) → {"Peter": 1000, "Paul": 1099}
 	 * robPeterToPayPaul({"Peter": 2000, "Paul": 30000}) → {"Peter": 2000, "Paul": 30000}
+	 * robPeterToPayPaul({"Peter": 101, "Paul": 500}) → {"Peter": 51, "Paul": 550}
+	 * robPeterToPayPaul({"Peter": 0, "Paul": 500}) → {"Peter": 0, "Paul": 500}
 	 *
 	 */
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
@@ -91,11 +93,14 @@ public class Exercises {
 	}
 
 	/*
-	 * Given an array of non-empty Strings, return a Map<String, String> where for every different String in the array,
-	 * there is a key of its first character with the value of its last character.
+	 * Given an array of non-empty strings, return a Map<String, String> where, for every String in the array,
+	 * there is an entry whose key is the first character of the string.
+	 *
+	 * The value of the entry is the last character of the String. If multiple Strings start with the same letter, then the
+	 * value for that key should be the later String's last character.
 	 *
 	 * beginningAndEnding(["code", "bug"]) → {"b": "g", "c": "e"}
-	 * beginningAndEnding(["man", "moon", "main"]) → {"m": "n"}
+	 * beginningAndEnding(["code", "bug", "cat"]) → {"b": "g", "c": "t"}
 	 * beginningAndEnding(["muddy", "good", "moat", "good", "night"]) → {"g": "d", "m": "t", "n": "t"}
 	 */
 	public Map<String, String> beginningAndEnding(String[] words) {

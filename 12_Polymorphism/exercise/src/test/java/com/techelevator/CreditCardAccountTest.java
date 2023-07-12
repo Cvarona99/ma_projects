@@ -1,15 +1,14 @@
 package com.techelevator;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 /**
  * CreditCardAccountTest
@@ -22,6 +21,7 @@ public class CreditCardAccountTest {
     public void classShouldExist() {
         try {
             creditCard = Class.forName("com.techelevator.CreditCardAccount");
+            assertFalse("CreditCardAccount class must not be abstract. Remove the 'abstract' modifier on CreditCardAccount.", Modifier.isAbstract(creditCard.getModifiers()));
         } catch (ClassNotFoundException e) {
             fail("com.techelevator.CreditCardAccount class does not exist");
         }
@@ -33,6 +33,9 @@ public class CreditCardAccountTest {
         assertNotNull("CreditCardAccount should contain a 2 argument constructor that sets account holder name and number", constructor);
 
         Object sut = constructor.newInstance("TEST","6011222233334444");
+
+        Method getDebt = sut.getClass().getMethod("getDebt");
+        assertEquals(0, getDebt.invoke(sut));
 
         Method getAccountHolder = sut.getClass().getMethod("getAccountHolder");
         assertEquals("TEST", getAccountHolder.invoke(sut));

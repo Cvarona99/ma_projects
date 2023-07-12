@@ -3,7 +3,6 @@ package com.techelevator;
 import static org.junit.Assert.*;
 import static org.junit.Assume.assumeTrue;
 
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.FixMethodOrder;
 import org.junit.runners.MethodSorters;
@@ -25,6 +24,8 @@ public class SavingsAccountTest {
         try {
             // Assert SavingsAccount class exists
             savingsAccountClass = Class.forName("com.techelevator.SavingsAccount");
+
+            assertFalse("SavingsAccount class must not be abstract. Remove the 'abstract' modifier on SavingsAccount.", Modifier.isAbstract(savingsAccountClass.getModifiers()));
 
             // Assert SavingsAccount extends BankAccount
             Class superclass = savingsAccountClass.getSuperclass();
@@ -133,6 +134,6 @@ public class SavingsAccountTest {
         getBalance = savingsAccount.getClass().getMethod("getBalance");
         withdraw = savingsAccount.getClass().getMethod("withdraw", int.class);
         withdraw.invoke(savingsAccount, 199);
-        assertEquals("SavingsAccount current balance: 200, withdraw: 199, overdraft denied (200 - (199 + 2) < 0) and balance remains 100.", 200, getBalance.invoke(savingsAccount));
+        assertEquals("SavingsAccount current balance: 200, withdraw: 199, overdraft should be denied (200 - (199 + 2) < 0) and balance remains 100.", 200, getBalance.invoke(savingsAccount));
     }
 }

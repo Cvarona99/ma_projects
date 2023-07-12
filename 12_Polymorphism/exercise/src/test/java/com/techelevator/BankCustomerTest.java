@@ -28,12 +28,14 @@ public class BankCustomerTest {
     public void classShouldExist() {
         try {
             customer = Class.forName("com.techelevator.BankCustomer");
+            assertFalse("BankCustomer class must not be abstract. Remove the 'abstract' modifier on BankCustomer.", Modifier.isAbstract(customer.getModifiers()));
         } catch (ClassNotFoundException e) {
             fail("com.techelevator.BankCustomer class does not exist");
         }
 
         try {
             creditCard = Class.forName("com.techelevator.CreditCardAccount");
+            assertFalse("CreditCardAccount class must not be abstract. Remove the 'abstract' modifier on CreditCardAccount.", Modifier.isAbstract(creditCard.getModifiers()));
         } catch (ClassNotFoundException e) {
             fail(e.getMessage());
         }
@@ -122,7 +124,7 @@ public class BankCustomerTest {
             assertEquals(two, accounts[1]);
             assertEquals(three, accounts[2]);
         } catch (NoSuchMethodException e) {
-            fail(e.getMessage());
+            fail("Missing method: " + e.getMessage());
         }
     }
 
@@ -148,7 +150,7 @@ public class BankCustomerTest {
             Method isVip = sut.getClass().getMethod("isVip");
             assertTrue((Boolean) isVip.invoke(sut));
         } catch (NoSuchMethodException e) {
-            fail(e.getMessage());
+            fail("Missing method: " + e.getMessage());
         }
     }
 
@@ -174,7 +176,7 @@ public class BankCustomerTest {
             Method isVip = sut.getClass().getMethod("isVip");
             assertTrue((Boolean) isVip.invoke(sut));
         } catch (NoSuchMethodException e) {
-            fail(e.getMessage());
+            fail("Missing method: " + e.getMessage());
         }
     }
 
@@ -202,7 +204,7 @@ public class BankCustomerTest {
             Method isVip = sut.getClass().getMethod("isVip");
             assertTrue((Boolean) isVip.invoke(sut));
         } catch (NoSuchMethodException e) {
-            fail(e.getMessage());
+            fail("Missing method: " + e.getMessage());
         }
     }
 
@@ -223,7 +225,7 @@ public class BankCustomerTest {
             Method isVip = sut.getClass().getMethod("isVip");
             assertFalse((Boolean) isVip.invoke(sut));
         } catch (NoSuchMethodException e) {
-            fail(e.getMessage());
+            fail("Missing method: " + e.getMessage());
         }
     }
 
@@ -249,7 +251,7 @@ public class BankCustomerTest {
             Method isVip = sut.getClass().getMethod("isVip");
             assertFalse((Boolean) isVip.invoke(sut));
         } catch (NoSuchMethodException e) {
-            fail(e.getMessage());
+            fail("Missing method: " + e.getMessage());
         }
     }
 
@@ -277,7 +279,7 @@ public class BankCustomerTest {
             Method isVip = sut.getClass().getMethod("isVip");
             assertFalse((Boolean) isVip.invoke(sut));
         } catch (NoSuchMethodException e) {
-            fail(e.getMessage());
+            fail("Missing method: " + e.getMessage());
         }
     }
 

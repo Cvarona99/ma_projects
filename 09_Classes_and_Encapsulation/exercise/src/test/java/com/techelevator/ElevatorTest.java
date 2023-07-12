@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -56,6 +57,8 @@ public class ElevatorTest {
 		method = SafeReflection.getMethod(klass, "goDown", Integer.TYPE);
 		assertTrue("Elevator class needs the goDown() method.", method != null);
 		assertTrue("goDown() method needs to return type: void", method.getReturnType() == void.class);
+
+		assertFalse("Elevator class must not be abstract. Remove the 'abstract' modifier on Elevator.", Modifier.isAbstract(klass.getModifiers()));
 	}
 
 	@Test

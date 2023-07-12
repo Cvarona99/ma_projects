@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -68,6 +69,8 @@ public class TelevisionTest {
 		method = SafeReflection.getMethod(klass, "lowerVolume");
 		assertTrue("Television class needs the lowerVolume() method.", method != null);
 		assertTrue("lowerVolume() method needs to return type: void", method.getReturnType() == void.class);
+
+		assertFalse("Television class must not be abstract. Remove the 'abstract' modifier on Television.", Modifier.isAbstract(klass.getModifiers()));
 	}
 
 	@Test

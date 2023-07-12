@@ -26,6 +26,8 @@ public class BankAccountTest {
             // Assert BankAccount class exists
             bankAccountClass = Class.forName("com.techelevator.BankAccount");
 
+            assertFalse("BankAccount class must not be abstract. Remove the 'abstract' modifier on BankAccount.", Modifier.isAbstract(bankAccountClass.getModifiers()));
+
             // Assert constructors exist
             twoArgConstructor = SafeReflection.getConstructor(bankAccountClass, String.class, String.class);
             assertNotNull("BankAccount does not have the required two argument constructor BankAccount(String, String). Make sure access for the constructor is public.", twoArgConstructor);

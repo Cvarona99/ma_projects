@@ -26,6 +26,8 @@ public class CheckingAccountTest {
             // Assert CheckingAccount class exists
             checkingAccountClass = Class.forName("com.techelevator.CheckingAccount");
 
+            assertFalse("CheckingAccount class must not be abstract. Remove the 'abstract' modifier on CheckingAccount.", Modifier.isAbstract(checkingAccountClass.getModifiers()));
+
             // Assert CheckingAccount extends BankAccount
             Class superclass = checkingAccountClass.getSuperclass();
             assertEquals("CheckingAccount must extend BankAccount.", superclass.getName(),"com.techelevator.BankAccount");

@@ -1,5 +1,6 @@
 package com.techelevator;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -7,23 +8,23 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
 public class FindAndReplaceTest {
 
-    private String replacementStr;
     private File srcFile;
-    private File destFile;
+    private Path destFilePath = Paths.get("src/test/resources/DonQuixote-test.txt");
     private String srcContent;
 
     @Before
     public void setUp() throws Exception {
-        replacementStr = "🥓";
 
         // get text from source file
-        srcFile = new File("src/test/resources/bacon.txt");
+        srcFile = new File("src/test/resources/DonQuixote.txt");
         /*
          * Normalize source content to the runtime line separator. Found the source
          * file, bacon.txt, was saved in Git repo with LF separators, but when
@@ -40,26 +41,25 @@ public class FindAndReplaceTest {
         for (String line: lines) {
             srcContent += line + System.lineSeparator();
         }
-
-        // destination file
-        destFile = new File("src/test/resources/bacon-emoji.txt");
     }
 
     /*
-     * The word spinach will not be found in the source file so no replacements should be made in the destination file.
+     * The word selfie will not be found in the source file so no replacements should be made in the destination file.
      */
     @Test
     public void shouldReplaceNoWords() throws IOException {
-        String searchStr = "spinach";
+        String searchStr = "selfie";
 
         // replace all occurrences of search word with replacement
+        String replacementStr = "windmills";
         String expected = srcContent.replaceAll(searchStr, replacementStr);
 
         // call main()
-        invoke(searchStr);
+        invoke(searchStr, replacementStr);
 
+        Assert.assertTrue(Files.exists(destFilePath));
         // read destination file
-        String destContent = Files.readString(destFile.toPath());
+        String destContent = Files.readString(destFilePath);
 
         // does the expected content of the destination file meet the expected.
         assertEquals(expected.trim(),destContent.trim());
@@ -70,16 +70,18 @@ public class FindAndReplaceTest {
      */
     @Test
     public void shouldReplaceSingleWord() throws IOException {
-        String searchStr = "Bacon";
+        String searchStr = "great-grandfather";
 
         // replace all occurrences of search word with replacement
+        String replacementStr = "nephew";
         String expected = srcContent.replaceAll(searchStr, replacementStr);
 
         // call main()
-        invoke(searchStr);
+        invoke(searchStr, replacementStr);
 
+        Assert.assertTrue(Files.exists(destFilePath));
         // read destination file
-        String destContent = Files.readString(destFile.toPath());
+        String destContent = Files.readString(destFilePath);
 
         // does the expected content of the destination file meet the expected.
         assertEquals(expected.trim(),destContent.trim());
@@ -87,16 +89,18 @@ public class FindAndReplaceTest {
 
     @Test
     public void shouldReplaceMultipleOccurrences() throws IOException {
-        String searchStr = "bacon";
+        String searchStr = "La Mancha";
 
-        // replace all occurrences of search word with replacement; this is a
+        // replace all occurrences of search word with replacement;
+        String replacementStr = "Toledo";
         String expected = srcContent.replaceAll(searchStr, replacementStr);
 
         // call main()
-        invoke(searchStr);
+        invoke(searchStr, replacementStr);
 
+        Assert.assertTrue(Files.exists(destFilePath));
         // read destination file
-        String destContent = Files.readString(destFile.toPath());
+        String destContent = Files.readString(destFilePath);
 
         // does the expected content of the destination file meet the expected.
         assertEquals(expected.trim(),destContent.trim());
@@ -107,8 +111,8 @@ public class FindAndReplaceTest {
      *
      * @param searchStr
      */
-    private void invoke(String searchStr) {
-        String userInput = concatWithNewLineFeed(searchStr,replacementStr,srcFile.getAbsolutePath(),destFile.getAbsolutePath());
+    private void invoke(String searchStr, String replacementStr) {
+        String userInput = concatWithNewLineFeed(searchStr,replacementStr,srcFile.getAbsolutePath(), destFilePath.toAbsolutePath().toString());
         System.setIn(new ByteArrayInputStream(userInput.getBytes()));
         FindAndReplace.main(null);
     }

@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 
 import com.techelevator.FruitTree;
 
@@ -24,7 +25,7 @@ public class FruitTreeTest {
 		assertTrue("getTypeOfFruit() method needs to return type: String", method.getReturnType() == String.class);
 
 		method = SafeReflection.getMethod(klass, "setTypeOfFruit", String.class);
-		assertTrue("FruitTree class should not have a getTypeOfFruit(String) method", method == null);
+		assertTrue("FruitTree class should not have a setTypeOfFruit(String) method", method == null);
 
 		method = SafeReflection.getMethod(klass, "getPiecesOfFruitLeft");
 		assertTrue("FruitTree class needs the getPiecesOfFruitLeft() method.", method != null);
@@ -36,6 +37,8 @@ public class FruitTreeTest {
 		method = SafeReflection.getMethod(klass, "pickFruit", Integer.TYPE);
 		assertTrue("FruitTree class needs the pickFruit(int) method.", method != null);
 		assertTrue("pickFruit(int) method needs to return type: boolean", method.getReturnType() == Boolean.TYPE);
+
+		assertFalse("FruitTree class must not be abstract. Remove the 'abstract' modifier on FruitTree.", Modifier.isAbstract(klass.getModifiers()));
 	}
 
 	@Test

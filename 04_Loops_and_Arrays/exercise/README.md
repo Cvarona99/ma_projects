@@ -2,6 +2,8 @@
 
 This exercise consists of various problems to give you the opportunity to practice what you learned about loops and arrays.
 
+This exercise consists of small coding problems that you can solve with loops and arrays. There are five main exercises that have three problems each. The problems in each exercise relate to each other, with the second and third ones requiring you to handle additional complexity. The main exercises aren't related to each other, and while they're numbered in a suggested order, you can complete them in any order. You may also find it helpful to start with the first problem in each exercise before moving on to the second and third problems.
+
 ## Learning objectives
 
 After completing this exercise, you'll understand:
@@ -48,4 +50,4 @@ You can also run the tests in debug mode when executing the tests. This allows y
 
 ### Don't linger too long on one problem
 
-If you find yourself stuck on a problem for more than fifteen minutes, move on to the next, and try again later. You may figure out the solution after working through another problem or two.
+If you find yourself stuck on a problem for more than fifteen minutes, move on to the next, and try again later. You may figure out the solution after working through another problem or two. You may also find it helpful to start with the first problem in each exercise before moving on to the second and third problems.

@@ -170,12 +170,14 @@ public class ExercisesTest {
 	}
 
 	/*
-	 * Given an array of non-empty strings, return a Map<String, String> where for every different string in the array,
-	 * there is a key of its first character with the value of its last character. In cases where two or more words have the same
-	 * first letter but different last letters, words torwards the end of the array take precedence.
+	 * Given an array of non-empty strings, return a Map<String, String> where, for every String in the array,
+	 * there is an entry whose key is the first character of the string.
+	 *
+	 * The value of the entry is the last character of the String. If multiple Strings start with the same letter, then the
+	 * value for that key should be the later String's last character.
 	 *
 	 * beginningAndEnding(["code", "bug"]) → {"b": "g", "c": "e"}
-	 * beginningAndEnding(["man", "moon", "main"]) → {"m": "n"}
+	 * beginningAndEnding(["code", "bug", "cat"]) → {"b": "g", "c": "t"}
 	 * beginningAndEnding(["muddy", "good", "moat", "good", "night"]) → {"g": "d", "m": "t", "n": "t"}
 	 */
 	@Test
@@ -184,6 +186,11 @@ public class ExercisesTest {
 		assertThat("beginningAndEnding([\"code\", \"bug\"])", output.size(), equalTo(2));
 		assertThat("beginningAndEnding([\"code\", \"bug\"])", output, hasEntry("b", "g"));
 		assertThat("beginningAndEnding([\"code\", \"bug\"])", output, hasEntry("c", "e"));
+
+		output = exercises.beginningAndEnding(new String[] { "code", "bug", "cat" });
+		assertThat("beginningAndEnding([\"code\", \"bug\", \"cat\"])", output.size(), equalTo(2));
+		assertThat("beginningAndEnding([\"code\", \"bug\", \"cat\"])", output, hasEntry("b", "g"));
+		assertThat("beginningAndEnding([\"code\", \"bug\", \"cat\"])", output, hasEntry("c", "t"));
 
 		output = exercises.beginningAndEnding(new String[] { "man", "moon", "main" });
 		assertThat("beginningAndEnding([\"code\", \"bug\"])", output.size(), equalTo(1));
