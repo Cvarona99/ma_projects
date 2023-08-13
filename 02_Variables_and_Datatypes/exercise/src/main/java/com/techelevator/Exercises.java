@@ -92,7 +92,7 @@ public class Exercises {
 		double quarter = 0.25;
 		double dime = 0.10;
 		double nickel = 0.05;
-		int	numberofQuarters = 1;
+		int numberofQuarters = 1;
 		int numberofDimes = 1;
 		int numberofNickels = 2;
 		double moneyTotal = ((double)numberofNickels * nickel) + ((double)numberofDimes * dime) + ((double)numberofQuarters * quarter);
@@ -239,14 +239,16 @@ public class Exercises {
         */
 		int morningShovelMinutes = 90;
 		int afternoonShovelMinutes = 45;
-		int totalminutesSpent = morningShovelMinutes + afternoonShovelMinutes;
+		int totalMinutesSpent = morningShovelMinutes + afternoonShovelMinutes;
 
 
         /* Exercise 26
         26. Mrs. Hilt bought 6 hot dogs. Each hot dog cost 50 cents. How much
         money did she pay for all of the hot dogs?
         */
-		double hotDogCost =
+		double hotDogCost = 0.50;
+		int hotDogs = 6;
+		double allDogCost = (double)hotDogs * hotDogCost;
 
 
 
@@ -254,6 +256,9 @@ public class Exercises {
         27. Mrs. Hilt has 50 cents. A pencil costs 7 cents. How many pencils can
         she buy with the money she has?
         */
+		double hiltCoins= .50;
+		double pencilPrice = .07;
+		int howManyPencils = (int) (hiltCoins / pencilPrice);
 
 
         /* Exercise 28
@@ -261,72 +266,110 @@ public class Exercises {
         were orange. If 20 of the butterflies were orange, how many of them
         were red?
         */
+		int butterFLies = 33;
+		int orangeFlies = 20;
+		int redFLies = butterFLies - orangeFlies;
+
 
 
         /* Exercise 29
         29. Kate gave the clerk $1.00. Her candy cost 54 cents. How much change
         should Kate get back?
         */
+		double kateTotal = 1.00;
+		double candyCost = .54;
+		double change = kateTotal - candyCost;
 
 
         /* Exercise 30
         30. Mark has 13 trees in his backyard. If he plants 12 more, how many trees
         will he have?
         */
+		int initialTrees = 13;
+		int additionalTrees = 12;
+		int totalTrees = initialTrees + additionalTrees;
 
 
         /* Exercise 31
         31. Joy will see her grandma in two days. How many hours until she sees
         her?
         */
+		int daysUntilGrandma = 2;
+		int hoursInaDay = 24;
+		int hoursUntilGrandma = hoursInaDay * daysUntilGrandma;
 
 
         /* Exercise 32
         32. Kim has 4 cousins. She wants to give each one 5 pieces of gum. How
         much gum will she need?
         */
+		int kimCousins = 4;
+		int gumPerKid = 5;
+		int gumNeeded = gumPerKid * kimCousins;
 
 
         /* Exercise 33
         33. Dan has $3.00. He bought a candy bar for $1.00. How much money is
         left?
         */
+		double danMoney = 3.00;
+		double danCandyCost = 1.00;
+		double moneyLeft = danMoney - danCandyCost;
 
 
         /* Exercise 34
         34. 5 boats are in the lake. Each boat has 3 people. How many people are
         on boats in the lake?
         */
+		int boatsInaLake = 5;
+		int peoplePerBoat = 3;
+		int totalPeopleOnLake = boatsInaLake * peoplePerBoat;
 
 
         /* Exercise 35
         35. Ellen had 380 legos, but she lost 57 of them. How many legos does she
         have now?
         */
+		int ellenLegos = 380;
+		int legosLost = 57;
+		int legosLeft = ellenLegos - legosLost;
 
 
         /* Exercise 36
         36. Arthur baked 35 muffins. How many more muffins does Arthur have to
         bake to have 83 muffins?
         */
+		int muffinsBaked = 35;
+		int muffinsNeeded = 83;
+		int moreMuffins = muffinsNeeded - muffinsBaked;
+
 
 
         /* Exercise 37
         37. Willy has 1400 crayons. Lucy has 290 crayons. How many more
         crayons does Willy have then Lucy?
         */
+		int willyCrayons = 1400;
+		int lucyCrayons = 290;
+		int moreWillCrayons = willyCrayons - lucyCrayons;
 
 
         /* Exercise 38
         38. There are 10 stickers on a page. If you have 22 pages of stickers, how
         many stickers do you have?
         */
+		int stickersOnaPage = 10;
+		int pages = 22;
+		int stickersTotal = stickersOnaPage * pages;
 
 
         /* Exercise 39
         39. There are 100 cupcakes for 8 children to share. How much will each
         person get if they share the cupcakes equally?
         */
+		int cupCakesTotal = 100;
+		int children = 8;
+		double cupCakePerChild = (double) cupCakesTotal / children;
 
 
         /* Exercise 40
@@ -334,6 +377,10 @@ public class Exercises {
         tiny glass jars. If each jar is to contain six cookies, how many
         cookies will not be placed in a jar?
         */
+		int gingerBreadCookies = 47;
+		int cookiesPerJar = 6;
+		int leftOvers = gingerBreadCookies % cookiesPerJar;
+
 
 
         /* Exercise 41
@@ -341,6 +388,9 @@ public class Exercises {
         neighbors. If each neighbor received an equal number of croissants,
         how many will be left with Marian?
         */
+		int croissants = 59;
+		int neighbors  = 8;
+		int leftoverCroissants = croissants % neighbors;
 
 
         /* Exercise 42
@@ -348,6 +398,10 @@ public class Exercises {
         place 12 cookies on a tray at a time, how many trays will she need to
         prepare 276 oatmeal cookies at a time?
         */
+		int marianCookiesataTime = 276;
+		int cookiesPerTray = 12;
+		int traysNeeded = marianCookiesataTime / cookiesPerTray;
+
 
 
         /* Exercise 43
@@ -355,6 +409,9 @@ public class Exercises {
         bite-sized pretzels. If one serving is equal to 12 pretzels, how many
         servings of bite-sized pretzels was Marian able to prepare?
         */
+		int pretzelsMade = 480;
+		int servingSize = 12;
+		int totalServings = pretzelsMade / servingSize;
 
 
         /* Exercise 44
@@ -362,6 +419,10 @@ public class Exercises {
         orphanage. If two lemon cupcakes were left at home, how many
         boxes with 3 lemon cupcakes each were given away?
         */
+		int lemonCupcakes = 53;
+		int cakesAtHome = 2;
+		int cakesPerBox = 3;
+		int boxes = (lemonCupcakes - cakesAtHome) / cakesPerBox;
 
 
         /* Exercise 45
@@ -369,6 +430,9 @@ public class Exercises {
         were served equally to 12 people, how many carrot sticks were left
         uneaten?
         */
+		int carrotSticks = 74;
+		int peopleServed = 12;
+		int sticksLeft = carrotSticks % peopleServed;
 
 
         /* Exercise 46
@@ -376,6 +440,9 @@ public class Exercises {
         them on the shelves in their bedroom. If every shelf can carry a
         maximum of 7 teddy bears, how many shelves will be filled?
         */
+		int teddyBears = 98;
+		int bearsPerShelf = 7;
+		int shelves = teddyBears / bearsPerShelf;
 
 
         /* Exercise 47
@@ -383,6 +450,10 @@ public class Exercises {
         them in an album. If an album can contain 20 pictures, how many
         albums will she need if there are 480 pictures?
         */
+		int pictures = 480;
+		int picsPerAlbum = 20;
+		int albumCount = pictures / picsPerAlbum;
+
 
 
         /* Exercise 48
@@ -391,6 +462,11 @@ public class Exercises {
         cards, how many boxes were filled and how many cards are there in
         the unfilled box?
         */
+		int tradingCards = 94;
+		int cardsPerBox = 8;
+		int filledBoxes = (tradingCards / cardsPerBox) - (tradingCards % cardsPerBox);
+		int cardsLessThanFull = tradingCards % cardsPerBox;
+
 
 
         /* Exercise 49
@@ -398,35 +474,69 @@ public class Exercises {
         210 books to be distributed equally on the 10 shelves he repaired,
         how many books will each shelf contain?
         */
+		int booksDistributed = 210;
+		int shelvesRepaired = 10;
+		int booksPerShelf = booksDistributed / shelvesRepaired;
+
+
 
 
         /* Exercise 50
         50. Cristina baked 17 croissants. If she planned to serve this equally to
         her seven guests, how many will each have?
         */
+		int croissantsBaked = 17;
+		int guests = 7;
+		double perGuest = (double) croissantsBaked / guests;
 
 
-	    /* Exercise 51
+        /* Exercise 51
 	    51. Bill and Jill are house painters. Bill can paint a standard room in 2.15 hours, while Jill averages
 	    1.90 hours. How long will it take the two painters working together to paint 5 standard rooms?
-	    Hint: Calculate the rate at which each painter can complete a room (rooms / hour), combine those rates, 
+	    Hint: Calculate the rate at which each painter can complete a room (rooms / hour), combine those rates,
 	    and then divide the total number of rooms to be painted by the combined rate.
 	    */
-     
+		int  rooms  = 5;
+		double billRoomPaintTime = 2.15;
+		double jillRoomPaintTime = 1.90;
+		double billRoomsPerHour = 1 / billRoomPaintTime;
+		double jillRoomsPerHour = 1 / jillRoomPaintTime;
+		double roomsPerHourTogether = billRoomsPerHour + jillRoomsPerHour;
+		double timeForFiveRooms = (double) rooms / roomsPerHourTogether;
 
-	    /* Exercise 52
+
+
+
+
+
+
+        /* Exercise 52
 	    52. Create and assign variables to hold a first name, last name, and middle initial. Using concatenation,
 		build an additional variable to hold the full name in the order of last name, first name, middle initial. The
 		last and first names should be separated by a comma followed by a space, and the middle initial must end
 		with a period. Use "Grace", "Hopper, and "B" for the first name, last name, and middle initial.
 		Example: "John", "Smith, "D" —> "Smith, John D."
 	    */
+		String firstName = "Grace";
+		String lastName = "Hopper";
+		String middle = "B";
+		String fullName = lastName + ", " + firstName + " " + middle +".";
 
 
-	    /* Exercise 53
+
+        /* Exercise 53
 	    53. The distance between New York and Chicago is 800 miles, and the train has already travelled 537 miles.
 	    What percentage of the trip as a whole number has been completed?
 	    */
+		double distance = 800.00;
+		double traveled = 537.00;
+		double tripCalc = traveled / distance;
+		double percentage = tripCalc * 100;
+		int percent = (int)percentage;
+
+
+
+
 
 	}
 
